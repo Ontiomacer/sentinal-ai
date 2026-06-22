@@ -1,0 +1,656 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-outline-variant;
+  }
+  
+  body {
+    @apply bg-background text-on-surface font-body-md overflow-x-hidden;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Material Symbols Configuration */
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+}
+
+html.theme-light {
+  color-scheme: light;
+}
+
+html.theme-light body {
+  background: #f4f4f4;
+  color: #050505;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.026) 1px, transparent 1px);
+}
+
+html.theme-light .bg-background,
+html.theme-light .bg-surface,
+html.theme-light .bg-surface-container,
+html.theme-light .bg-surface-container-low,
+html.theme-light .bg-surface-container-lowest,
+html.theme-light .bg-black {
+  background-color: #f4f4f4 !important;
+}
+
+html.theme-light .bg-\[\#010101\],
+html.theme-light .bg-\[\#030303\],
+html.theme-light .bg-\[\#050505\],
+html.theme-light .bg-\[\#0a0a0f\] {
+  background-color: #f7f7f7 !important;
+}
+
+html.theme-light [class*="bg-white/"] {
+  background-color: rgba(0, 0, 0, 0.035) !important;
+}
+
+html.theme-light .bg-white {
+  background-color: #050505 !important;
+}
+
+html.theme-light .text-white,
+html.theme-light .text-on-surface,
+html.theme-light .text-on-background {
+  color: #050505 !important;
+}
+
+html.theme-light [class*="text-white/"],
+html.theme-light .text-on-surface-variant {
+  color: rgba(0, 0, 0, 0.62) !important;
+}
+
+html.theme-light .text-black {
+  color: #ffffff !important;
+}
+
+html.theme-light [class*="border-white/"],
+html.theme-light .border-outline,
+html.theme-light .border-outline-variant {
+  border-color: rgba(0, 0, 0, 0.14) !important;
+}
+
+html.theme-light input,
+html.theme-light textarea,
+html.theme-light select {
+  color: #050505;
+}
+
+@layer components {
+  /* Glass Panel Effect - Core to the design system */
+  .glass-panel {
+    @apply bg-surface-container/40 backdrop-blur-lg border border-outline-variant/20;
+  }
+
+  /* Neural Glow Effect */
+  .neural-glow {
+    box-shadow: 0 0 40px -10px rgba(197, 198, 203, 0.2);
+  }
+
+  /* Scanline Effect for Terminal/Neural Visualizations */
+  .scanline {
+    background: linear-gradient(to bottom, transparent 50%, rgba(166, 200, 255, 0.02) 50%);
+    background-size: 100% 4px;
+  }
+
+  /* Custom Scrollbar for Terminal */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-outline-variant rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-outline;
+  }
+
+  /* Threat Badge Styles */
+  .threat-badge {
+    @apply px-2 py-0.5 border-l-2 font-label-sm text-label-sm tracking-widest uppercase;
+  }
+
+  .threat-badge-critical {
+    @apply threat-badge border-error bg-error/10 text-error;
+  }
+
+  .threat-badge-high {
+    @apply threat-badge border-secondary bg-secondary/10 text-secondary;
+  }
+
+  .threat-badge-medium {
+    @apply threat-badge border-primary bg-primary/10 text-primary;
+  }
+
+  .threat-badge-low {
+    @apply threat-badge border-tertiary bg-tertiary/10 text-tertiary;
+  }
+
+  /* Intelligence Feed Item */
+  .intel-feed-item {
+    @apply border-l-2 pl-4 py-1 transition-all duration-300 hover:border-secondary;
+  }
+
+  /* Timeline Block */
+  .timeline-block {
+    @apply glass-panel p-6 rounded-xl relative z-10 flex flex-col gap-3 
+           transition-all duration-300 hover:scale-[1.02] hover:border-secondary/40;
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    @apply w-full py-3 bg-secondary text-on-secondary font-bold rounded 
+           hover:opacity-90 transition-all flex items-center justify-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply glass-panel px-4 py-2 rounded hover:border-secondary/40 
+           transition-all duration-300;
+  }
+
+  /* Input Styles */
+  .input-ghost {
+    @apply bg-surface-container-lowest border-none border-b border-outline 
+           text-label-sm font-label-sm focus:ring-1 focus:ring-secondary 
+           transition-all;
+  }
+
+  .sentinel-mono {
+    color: #f4f4f4;
+    background: #030303;
+  }
+
+  .sentinel-mono-shell {
+    position: relative;
+    isolation: isolate;
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.12), transparent 28%),
+      #030303;
+    background-size: 34px 34px, 34px 34px, 100% 100%, auto;
+  }
+
+  .sentinel-mono-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.22;
+    background:
+      repeating-linear-gradient(
+        115deg,
+        transparent 0,
+        transparent 16px,
+        rgba(255, 255, 255, 0.08) 17px,
+        transparent 18px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 6px,
+        rgba(255, 255, 255, 0.045) 7px
+      );
+    mask-image: linear-gradient(to bottom, transparent, black 14%, black 86%, transparent);
+  }
+
+  .sentinel-mono [class*="text-secondary"],
+  .sentinel-mono [class*="text-primary"],
+  .sentinel-mono [class*="text-tertiary"],
+  .sentinel-mono [class*="text-success"],
+  .sentinel-mono [class*="text-error"] {
+    color: #f5f5f5 !important;
+  }
+
+  .sentinel-mono [class*="bg-secondary/"],
+  .sentinel-mono [class*="bg-primary/"],
+  .sentinel-mono [class*="bg-tertiary/"],
+  .sentinel-mono [class*="bg-success/"],
+  .sentinel-mono [class*="bg-error/"] {
+    background-color: rgba(255, 255, 255, 0.075) !important;
+  }
+
+  .sentinel-mono .bg-secondary,
+  .sentinel-mono .bg-primary,
+  .sentinel-mono .bg-tertiary,
+  .sentinel-mono .bg-success,
+  .sentinel-mono .bg-error {
+    background-color: #f5f5f5 !important;
+    color: #050505 !important;
+  }
+
+  .sentinel-mono [class*="border-secondary"],
+  .sentinel-mono [class*="border-primary"],
+  .sentinel-mono [class*="border-tertiary"],
+  .sentinel-mono [class*="border-success"],
+  .sentinel-mono [class*="border-error"] {
+    border-color: rgba(255, 255, 255, 0.42) !important;
+  }
+
+  .sentinel-mono [class*="shadow-"] {
+    box-shadow: none !important;
+  }
+
+  .sentinel-mono .mono-panel {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+      rgba(0, 0, 0, 0.88);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .sentinel-mono .mono-oath {
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.16), transparent 30%),
+      rgba(0, 0, 0, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     CSI THEME — Case Vault & Forensic Dashboard Styles
+     ═══════════════════════════════════════════════════════════ */
+
+  /* System Health Strip */
+  .system-health-strip {
+    @apply fixed top-[65px] w-full z-40 flex items-center justify-between px-4 py-1;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(10, 12, 18, 0.92) 50%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  /* CSI Welcome Banner */
+  .csi-welcome-banner {
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(197, 198, 203, 0.06), transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(120, 140, 200, 0.04), transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025) 0%, transparent 40%),
+      rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+  }
+
+  /* CSI Case Card */
+  .case-card-csi {
+    @apply bg-surface-container/30 backdrop-blur-md rounded-lg p-5;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left-width: 3px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .case-card-csi:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+  }
+
+  /* MCP Server Card */
+  .mcp-server-card {
+    @apply bg-surface-container/30 backdrop-blur-md rounded-lg p-5;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .mcp-server-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  /* MCP Tool Card */
+  .mcp-tool-card {
+    @apply bg-surface-container/25 backdrop-blur-sm rounded-lg p-4;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.2s ease;
+  }
+
+  .mcp-tool-card:hover {
+    border-color: rgba(197, 198, 203, 0.25);
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  /* Workstation Panel (for Neural Lab multi-panel layout) */
+  .workstation-panel {
+    @apply bg-surface-container/20 backdrop-blur-sm;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .workstation-panel-header {
+    @apply flex items-center gap-2 px-3 py-2 border-b border-white/5;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .workstation-panel-header span {
+    @apply font-mono text-[10px] tracking-[0.15em] uppercase text-on-surface-variant/50;
+  }
+
+  /* Panel Resize Handle */
+  .panel-resize-handle {
+    background: transparent;
+    transition: background 0.15s ease;
+  }
+
+  .panel-resize-handle:hover,
+  .panel-resize-handle[data-resize-handle-active] {
+    background: rgba(197, 198, 203, 0.15);
+  }
+
+  .panel-resize-handle-horizontal {
+    width: 3px;
+    cursor: col-resize;
+  }
+
+  .panel-resize-handle-vertical {
+    height: 3px;
+    cursor: row-resize;
+  }
+
+  /* Report Card */
+  .report-card {
+    @apply glass-panel p-5 rounded-lg cursor-pointer;
+    transition: all 0.2s ease;
+  }
+
+  .report-card:hover {
+    @apply border-secondary/40;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px -6px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Triage Drive Card */
+  .triage-drive-card {
+    @apply glass-panel p-5 rounded-lg;
+    border-left-width: 3px;
+  }
+
+  .triage-drive-ready {
+    @apply border-l-emerald-400;
+  }
+
+  .triage-drive-missing {
+    @apply border-l-red-400;
+  }
+
+  /* CLI Reference Code Block */
+  .cli-code-block {
+    @apply bg-black/50 border border-white/[0.08] rounded-lg p-4 font-mono text-sm;
+    color: #e0e0e0;
+  }
+
+  .cli-code-block .cli-prompt {
+    color: #4ade80;
+  }
+
+  .cli-code-block .cli-flag {
+    color: #60a5fa;
+  }
+
+  .cli-code-block .cli-value {
+    color: #fbbf24;
+  }
+}
+
+@layer utilities {
+  /* Cinematic Spacing */
+  .container-padding {
+    @apply px-container-padding-mobile md:px-container-padding-desktop;
+  }
+
+  /* Section Gap */
+  .section-spacing {
+    @apply mb-section-gap;
+  }
+
+  /* Fade In Animation */
+  .fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Progressive Reveal - Surgical Motion */
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .duration-700 {
+    transition-duration: 700ms;
+  }
+
+  .ease-out {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  /* Investigation Phase Pulse - Subtle */
+  .animate-pulse {
+    animation: investigationPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes investigationPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  /* Ingestion Ping - Calm Propagation */
+  .animate-ping {
+    animation: ingestionPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes ingestionPing {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 0.4; }
+    100% { transform: scale(1.2); opacity: 0; }
+  }
+
+  /* Pulse Animation for Status Indicators */
+  .status-pulse {
+    animation: statusPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes statusPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     NEURAL LAB — Cinematic Styles & Animations
+     ═══════════════════════════════════════════════════════════ */
+
+  /* Slow pulse for persistent threat indicators */
+  .animate-pulse-slow {
+    animation: pulseSlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.45; }
+  }
+
+  /* Glow shadow for active risk elements */
+  .shadow-glow {
+    box-shadow: 0 0 12px -2px currentColor;
+  }
+
+  .shadow-glow-error {
+    box-shadow: 0 0 20px -4px rgba(255, 74, 74, 0.10);
+  }
+
+  /* Hide scrollbar but keep scrolling */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Thin scrollbar variant */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 99px;
+  }
+
+  /* Neural Lab scan-line overlay for terminal panels */
+  .neural-scanline {
+    position: relative;
+  }
+  .neural-scanline::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 2px,
+      rgba(166, 200, 255, 0.015) 2px,
+      rgba(166, 200, 255, 0.015) 4px
+    );
+    opacity: 0.6;
+  }
+
+  /* Gradient border glow for active panels */
+  .border-glow {
+    position: relative;
+  }
+  .border-glow::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(197, 198, 203, 0.25), transparent 60%);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
+
+  /* Pipeline progress bar shimmer */
+  .shimmer-bar {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.08) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Typing cursor blink for AI chat */
+  .cursor-blink {
+    animation: cursorBlink 1s step-end infinite;
+  }
+
+  @keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* Staggered fade-in for list items */
+  .stagger-fade-in > * {
+    animation: fadeIn 0.5s ease-out both;
+  }
+  .stagger-fade-in > *:nth-child(1) { animation-delay: 0.05s; }
+  .stagger-fade-in > *:nth-child(2) { animation-delay: 0.10s; }
+  .stagger-fade-in > *:nth-child(3) { animation-delay: 0.15s; }
+  .stagger-fade-in > *:nth-child(4) { animation-delay: 0.20s; }
+  .stagger-fade-in > *:nth-child(5) { animation-delay: 0.25s; }
+  .stagger-fade-in > *:nth-child(6) { animation-delay: 0.30s; }
+
+  /* Radial threat-level gradient backgrounds */
+  .threat-gradient-critical {
+    background: radial-gradient(ellipse at 30% 20%, rgba(255, 74, 74, 0.08), transparent 60%);
+  }
+  .threat-gradient-high {
+    background: radial-gradient(ellipse at 30% 20%, rgba(255, 184, 77, 0.06), transparent 60%);
+  }
+  .threat-gradient-low {
+    background: radial-gradient(ellipse at 30% 20%, rgba(74, 222, 128, 0.05), transparent 60%);
+  }
+
+  /* Wizard Ingestion modal transitions */
+  .animate-fade-in {
+    animation: fadeInOverlay 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-shake {
+    animation: shakeError 0.4s ease-in-out;
+  }
+
+  @keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes shakeError {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-4px); }
+    40%, 80% { transform: translateX(4px); }
+  }
+
+  /* Slide-up animation for modals and panels */
+  .animate-slide-up {
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Grid dot background for forensic pages */
+  .forensic-grid-bg {
+    background-image:
+      radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}

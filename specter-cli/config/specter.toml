@@ -1,0 +1,14 @@
+[backend]
+url = "http://localhost:8000"
+timeout_seconds = 30
+retries = 2
+
+[auth]
+token = "user_dev"
+
+[workspace]
+active_case = "CASE-4E9D45B1"
+
+[output]
+default_format = "table"
+theme = "monochrome"

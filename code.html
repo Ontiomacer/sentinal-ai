@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#76787d",
+                    "primary-fixed": "#e1e2e7",
+                    "surface-container": "#162031",
+                    "on-error": "#690005",
+                    "tertiary-fixed-dim": "#51df8e",
+                    "secondary": "#a6c8ff",
+                    "inverse-on-surface": "#273143",
+                    "secondary-fixed-dim": "#a6c8ff",
+                    "on-tertiary": "#00391d",
+                    "surface-container-high": "#202a3c",
+                    "background": "#091324",
+                    "error": "#ffb4ab",
+                    "secondary-container": "#3192fc",
+                    "surface-variant": "#2b3548",
+                    "on-primary": "#2e3134",
+                    "on-secondary-fixed": "#001c3b",
+                    "on-primary-fixed": "#191c1f",
+                    "on-primary-fixed-variant": "#44474b",
+                    "primary-container": "#05070a",
+                    "on-error-container": "#ffdad6",
+                    "error-container": "#93000a",
+                    "tertiary": "#51df8e",
+                    "outline-variant": "#45474a",
+                    "surface-tint": "#c5c6cb",
+                    "secondary-fixed": "#d5e3ff",
+                    "surface": "#091324",
+                    "surface-container-lowest": "#040e1f",
+                    "primary": "#c5c6cb",
+                    "on-tertiary-container": "#008a4e",
+                    "on-tertiary-fixed": "#00210e",
+                    "surface-container-highest": "#2b3548",
+                    "surface-container-low": "#111c2d",
+                    "surface-dim": "#091324",
+                    "on-tertiary-fixed-variant": "#00522c",
+                    "tertiary-container": "#000903",
+                    "on-background": "#d9e3fb",
+                    "tertiary-fixed": "#70fda7",
+                    "on-surface": "#d9e3fb",
+                    "primary-fixed-dim": "#c5c6cb",
+                    "on-secondary": "#00315f",
+                    "on-surface-variant": "#c6c6ca",
+                    "inverse-primary": "#5c5e63",
+                    "on-secondary-fixed-variant": "#004786",
+                    "inverse-surface": "#d9e3fb",
+                    "on-secondary-container": "#002a53",
+                    "surface-bright": "#2f394c",
+                    "outline": "#8f9195"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "section-gap": "120px",
+                    "container-padding-mobile": "24px",
+                    "container-padding-desktop": "64px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "title-md": ["Inter"],
+                    "label-sm": ["Geist Mono", "monospace"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-xl": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "title-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-xl": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(22, 32, 49, 0.4);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .neural-glow {
+            box-shadow: 0 0 40px -10px rgba(197, 198, 203, 0.2);
+        }
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(166, 200, 255, 0.02) 50%);
+            background-size: 100% 4px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Header / TopNavBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-container-desktop py-4 bg-surface/60 backdrop-blur-xl border-b border-white/10 shadow-sm">
+<div class="flex items-center gap-base">
+<span class="font-display-xl text-title-md tracking-tighter text-on-surface">SENTINEL AI</span>
+<div class="ml-12 hidden md:flex items-center gap-gutter">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm" href="#">Intelligence</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-sm text-label-sm" href="#">Threat Map</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-sm text-label-sm" href="#">Neural Lab</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300 font-label-sm text-label-sm" href="#">Archives</a>
+</div>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container-lowest border-none border-b border-outline text-label-sm font-label-sm focus:ring-1 focus:ring-secondary w-64 px-4 py-2 transition-all" placeholder="QUERY THREAT DATABASE..." type="text"/>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">account_circle</span>
+</div>
+</div>
+</header>
+<main class="relative min-h-screen pt-32 pb-section-gap">
+<!-- Hero Section -->
+<section class="px-container-desktop mb-24 relative">
+<div class="max-w-4xl">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2 py-0.5 border-l-2 border-error bg-error/10 text-error font-label-sm text-label-sm tracking-widest uppercase">Critical Threat Detected</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm opacity-50">— OBJECT REF: 0x8823_ALPHA</span>
+</div>
+<h1 class="font-display-xl text-display-xl tracking-tighter text-on-surface leading-tight mb-6">
+                    WHATSAPP_SETUP.APK
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                    Editorial Analysis: A sophisticated trojanized installer mimicking legitimate communication software. Sentinel AI has identified multi-stage payload delivery mechanisms targeting localized SMS exfiltration and lateral camera hijacking.
+                </p>
+</div>
+</section>
+<!-- Central Visualization Area -->
+<section class="px-container-desktop mb-section-gap grid grid-cols-12 gap-gutter items-start">
+<!-- Neural Core Visual -->
+<div class="col-span-12 lg:col-span-8 relative aspect-video glass-panel rounded-xl overflow-hidden neural-glow flex items-center justify-center">
+<!-- Data-alt image representing the neural visualization -->
+<div class="absolute inset-0 opacity-40">
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-fidelity neural core visualization in a deep midnight digital environment. Glowing Electric Blue nodes and connections form a complex three-dimensional network architecture, representing a malware's logic flow. Subtle red light highlights suspicious behavior nodes like SMS and Camera access, pulsing softly. The aesthetic is clean, sophisticated, and editorial, with sharp geometric precision and deep tonal layering of glass and shadow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfxQf4Dq_-U1Ii5dZ18A63PBMYyYubQpa9RuuQcU-T0mtr4RuGkTgb3a_sLKwCk8ZSvqYa7BSvhChp0IePgLtQj5FdF-HmPclBr77wUTdcoWvBc66hmIvi4_tVuY1SxM8DiCfCpwFCyiWFL9cGoOITULWTZqd_EMhQbzlXdxJ7ypuFkUWvWJ622tNNF69jefI2rp0_9ka7TGjmsr4x3hzyzNofm16isuto5FP2c1ZBc2hPxFCUgyVemkSlc6h7yGXk0dObLaDU5xZ4"/>
+</div>
+<!-- Interactive Overlay Components -->
+<div class="relative z-10 w-full h-full p-12 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div class="glass-panel p-4 rounded-lg flex flex-col gap-1">
+<span class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-tighter">COGNITIVE CONFIDENCE</span>
+<span class="text-tertiary font-display-xl text-title-md">99.82%</span>
+</div>
+<div class="flex flex-col items-end gap-2">
+<div class="flex gap-2">
+<span class="px-3 py-1 glass-panel border-error/50 text-error font-label-sm text-label-sm">SMS_EXFIL</span>
+<span class="px-3 py-1 glass-panel border-error/50 text-error font-label-sm text-label-sm">CAM_INJECT</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-8">
+<div class="flex flex-col gap-2">
+<span class="text-on-surface-variant font-label-sm text-label-sm border-b border-white/5 pb-2 uppercase">Core Logic</span>
+<p class="text-on-surface opacity-80 text-label-sm font-label-sm">Dynamic link library injection detected in system process space.</p>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-on-surface-variant font-label-sm text-label-sm border-b border-white/5 pb-2 uppercase">Lateral Movement</span>
+<p class="text-on-surface opacity-80 text-label-sm font-label-sm">Scanning for local network MQTT brokers for data tunneling.</p>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-on-surface-variant font-label-sm text-label-sm border-b border-white/5 pb-2 uppercase">Persistence</span>
+<p class="text-on-surface opacity-80 text-label-sm font-label-sm">Obfuscated crontab modification targeting system boot cycles.</p>
+</div>
+</div>
+</div>
+<!-- Scanline Effect -->
+<div class="absolute inset-0 scanline pointer-events-none opacity-20"></div>
+</div>
+<!-- AI Briefing Sidebar -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-gutter">
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col h-[600px]">
+<div class="bg-surface-container-high px-4 py-3 flex items-center justify-between border-b border-white/10">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error/40"></div>
+<div class="w-3 h-3 rounded-full bg-secondary-container/40"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary/40"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Neural Analysis Logs</span>
+</div>
+<div class="p-6 font-label-sm text-label-sm leading-relaxed overflow-y-auto bg-primary-container/80 flex-grow custom-scrollbar">
+<p class="text-tertiary mb-2">[09:21:44] INITIALIZING NEURAL SCAN...</p>
+<p class="text-on-surface-variant mb-2">&gt; Loading heuristic engine 4.2.0...</p>
+<p class="text-on-surface-variant mb-2">&gt; File integrity check: FAIL (Signed by unknown certificate)</p>
+<p class="text-secondary mb-2">[09:21:46] PATTERN MATCH: 'SHADOW_SMS' V2.1</p>
+<p class="text-on-surface-variant mb-2">&gt; Deep dive analysis on logic gates... 4,291 nodes scanned.</p>
+<p class="text-error mb-2">[!] ALERT: MALICIOUS CALL FOUND AT OFFSET 0x44F2</p>
+<p class="text-on-surface-variant mb-2">&gt; system_call(camera_open) triggered by external signal.</p>
+<p class="text-on-surface-variant mb-2">&gt; encrypting_payload with AES-256-CBC...</p>
+<p class="text-on-surface-variant mb-2">&gt; routing_traffic through [192.168.0.210] hidden tunnel.</p>
+<p class="text-tertiary mb-2">[09:22:01] THREAT MITIGATION PROTOCOL READY.</p>
+<p class="text-on-surface-variant mt-4 animate-pulse">_</p>
+</div>
+<div class="p-4 border-t border-white/10 bg-surface-container-low">
+<button class="w-full py-3 bg-secondary text-on-secondary font-bold rounded hover:opacity-90 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">security</span>
+                            INITIATE NEUTRALIZATION
+                        </button>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl">
+<h3 class="font-title-md text-title-md mb-4 text-on-surface">Intelligence Feed</h3>
+<div class="space-y-4">
+<div class="border-l-2 border-primary pl-4 py-1">
+<span class="block font-label-sm text-label-sm text-on-surface-variant opacity-50">14 MIN AGO</span>
+<p class="text-body-md text-on-surface">New variant detected in Brazil region.</p>
+</div>
+<div class="border-l-2 border-secondary pl-4 py-1">
+<span class="block font-label-sm text-label-sm text-on-surface-variant opacity-50">1 HOUR AGO</span>
+<p class="text-body-md text-on-surface">C2 Server blacklisted by Neural Lab.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline Reconstruction (Cinematic Footer Area) -->
+<section class="px-container-desktop">
+<h2 class="font-title-md text-title-md text-on-surface mb-12 flex items-center gap-4">
+                ATTACK TIMELINE RECONSTRUCTION
+                <div class="h-px bg-white/10 flex-grow"></div>
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter relative">
+<!-- Connector Line -->
+<div class="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-y-1/2 hidden md:block"></div>
+<div class="glass-panel p-6 rounded-xl relative z-10 flex flex-col gap-3 group hover:scale-[1.02] transition-transform">
+<span class="font-label-sm text-label-sm text-primary tracking-widest">PHASE 01: INGRESS</span>
+<p class="text-body-md font-medium">Lure distributed via SMS phishing link.</p>
+<span class="text-on-surface-variant font-label-sm text-label-sm opacity-50">TIMESTAMP: T-0.00s</span>
+</div>
+<div class="glass-panel p-6 rounded-xl relative z-10 flex flex-col gap-3 group hover:scale-[1.02] transition-transform">
+<span class="font-label-sm text-label-sm text-secondary tracking-widest">PHASE 02: STAGING</span>
+<p class="text-body-md font-medium">Unpacking encrypted assets into /tmp.</p>
+<span class="text-on-surface-variant font-label-sm text-label-sm opacity-50">TIMESTAMP: T+1.4s</span>
+</div>
+<div class="glass-panel p-6 rounded-xl relative z-10 flex flex-col gap-3 group hover:scale-[1.02] transition-transform border-error/20">
+<span class="font-label-sm text-label-sm text-error tracking-widest">PHASE 03: EXECUTION</span>
+<p class="text-body-md font-medium">Native library dynamic load attempted.</p>
+<span class="text-on-surface-variant font-label-sm text-label-sm opacity-50">TIMESTAMP: T+2.1s</span>
+</div>
+<div class="glass-panel p-6 rounded-xl relative z-10 flex flex-col gap-3 group hover:scale-[1.02] transition-transform border-tertiary/20">
+<span class="font-label-sm text-label-sm text-tertiary tracking-widest">PHASE 04: MITIGATION</span>
+<p class="text-body-md font-medium">Sentinel Core blocked write permissions.</p>
+<span class="text-on-surface-variant font-label-sm text-label-sm opacity-50">TIMESTAMP: T+2.3s</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap px-container-desktop flex flex-col md:flex-row justify-between items-center gap-base border-t border-white/5 bg-background">
+<div class="flex flex-col gap-2">
+<span class="font-display-xl text-title-md tracking-tighter text-on-surface">SENTINEL AI</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-60">© 2024 SENTINEL AI. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-gutter">
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors" href="#">Privacy Protocol</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors" href="#">Neural Terms</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors" href="#">System Status</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors" href="#">Intelligence API</a>
+</div>
+<div class="flex items-center gap-4 text-primary">
+<span class="text-label-sm font-label-sm">SYSTEM STABLE</span>
+<div class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for terminal-style logs
+        const terminal = document.querySelector('.custom-scrollbar');
+        let opacity = 1;
+        
+        // Subtle rhythmic pulsing of the terminal to feel alive
+        setInterval(() => {
+            opacity = opacity === 1 ? 0.8 : 1;
+            terminal.style.transition = 'opacity 2s ease-in-out';
+            terminal.style.opacity = opacity;
+        }, 3000);
+
+        // Hover effects for the timeline blocks
+        const timelineBlocks = document.querySelectorAll('.group');
+        timelineBlocks.forEach(block => {
+            block.addEventListener('mouseenter', () => {
+                block.style.borderColor = 'rgba(166, 200, 255, 0.4)';
+            });
+            block.addEventListener('mouseleave', () => {
+                block.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+            });
+        });
+    </script>
+</body></html>

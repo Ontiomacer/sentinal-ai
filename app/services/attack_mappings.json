@@ -1,0 +1,62 @@
+{
+  "overlay_attack": {
+    "technique_id": "T1546",
+    "technique_name": "Overlay Attack",
+    "description": "Use of overlay windows or alert dialogs to present fake banking or credential capture screens.",
+    "match_tokens": ["SYSTEM_ALERT_WINDOW", "BIND_ACCESSIBILITY_SERVICE", "overlay", "alert_window", "window", "View.setLayerType", "type_application_overlay"]
+  },
+  "sms_interception": {
+    "technique_id": "T1412",
+    "technique_name": "SMS Interception",
+    "description": "Read, send, or intercept SMS messages to capture one-time passwords or banking transaction confirmations.",
+    "match_tokens": ["READ_SMS", "RECEIVE_SMS", "SEND_SMS", "RECEIVE_MMS", "SMS", "sms"]
+  },
+  "credential_harvesting": {
+    "technique_id": "T1587",
+    "technique_name": "Credential Harvesting",
+    "description": "Collect user credentials or authentication tokens via fake login screens, forms, or injected overlays.",
+    "match_tokens": ["password", "login", "auth", "credential", "token", "bank", "pin", "username", "user_id", "credit_card", "secure_input"]
+  },
+  "accessibility_abuse": {
+    "technique_id": "T1614",
+    "technique_name": "Accessibility Abuse",
+    "description": "Use accessibility services to monitor input, intercept UI interactions, or manipulate other apps.",
+    "match_tokens": ["BIND_ACCESSIBILITY_SERVICE", "accessibility", "AccessibilityService", "SERVICE_ACCESSIBILITY", "accessibility_event"]
+  },
+  "dynamic_loading": {
+    "technique_id": "T1620",
+    "technique_name": "Dynamic Code Loading",
+    "description": "Load code from external sources or dynamically generated payloads at runtime.",
+    "match_tokens": ["DexClassLoader", "PathClassLoader", "Class.forName", "loadClass", "defineClass", "reflection", "invoke", "runtime.exec", "Dynamic loading"]
+  },
+  "c2_communication": {
+    "technique_id": "T1071",
+    "technique_name": "Command and Control",
+    "description": "Communicate with remote infrastructure over HTTP/S, sockets, or custom protocols.",
+    "match_tokens": ["http://", "https://", "ftp://", "tcp://", "api", "server", "command", "control", "c2", "payload", "remote"]
+  },
+  "obfuscation": {
+    "technique_id": "T1027",
+    "technique_name": "Obfuscated Files or Information",
+    "description": "Conceal code, symbols, or strings to evade static analysis.",
+    "match_tokens": ["obfus", "proguard", "dexguard", "shrink", "minify", "encoded", "encrypted", "a.a.a", "x4", "gibberish"]
+  },
+  "persistence": {
+    "technique_id": "T1543",
+    "technique_name": "Persistence",
+    "description": "Register receivers, services, or boot-start handlers to survive reboots and maintain access.",
+    "match_tokens": ["BOOT_COMPLETED", "RECEIVE_BOOT_COMPLETED", "android.intent.action.BOOT_COMPLETED", "startService", "JobScheduler", "AlarmManager"]
+  },
+  "webview_injection": {
+    "technique_id": "T1185",
+    "technique_name": "WebView Injection",
+    "description": "Inject malicious content into WebView components to steal credentials or perform UI redressing.",
+    "match_tokens": ["WebView", "loadUrl", "evaluateJavascript", "addJavascriptInterface", "shouldOverrideUrlLoading", "webview"]
+  },
+  "native_library_abuse": {
+    "technique_id": "T1446",
+    "technique_name": "Native Code Abuse",
+    "description": "Leverage native libraries to evade detection, perform sensitive operations, or access low-level APIs.",
+    "match_tokens": [".so", "native", "JNI", "System.loadLibrary", "lib", "openssl", "crypto"]
+  }
+}
